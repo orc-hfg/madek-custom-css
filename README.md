@@ -19,4 +19,4 @@ The custom CSS is loaded after the regular one so the defaults of Madek can be e
 ```
 
 
-License: [GPLv3](https://www.gnu.org/licenses/)
+License: [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html)
