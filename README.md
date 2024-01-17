@@ -1,8 +1,6 @@
-This repo contains a custom stylesheet for [Madek](https://github.com/orc-hfg/resources/wiki/Madek), a software at the intersection between an institutional repository and digital asset management. The stylesheet was developed by [Open Resource Center](https://hfg-karlsruhe.de/forschung-und-entwicklung/orc/), a project of Karlsruhe University of Arts and Design. 
+Custom stylesheet for [Madek](https://github.com/orc-hfg/resources/wiki/Madek), developed by [Open Resource Center](https://hfg-karlsruhe.de/forschung-und-entwicklung/orc/), a project of Karlsruhe University of Arts and Design in 2024.
 
-The Madek WebApp is a complex application written in Ruby on Rails and React. To some, it might look a bit outdated nowadays. We felt the need to refresh the visual appearance – with minimal expense. 
-
-Our custom CSS stylesheet gets loaded after the regualr one so the defaults of Madek are extended or overwritten. In our case, we added two lines of code to the _base template to achieve this.
+The custom CSS is loaded after the regular one so the defaults of Madek can be extended or overwritten. In our case, we added two lines of code to the _base template to achieve this.
 
 `madek-webapp/app/views/layouts/_base.haml`
 
@@ -19,3 +17,6 @@ Our custom CSS stylesheet gets loaded after the regualr one so the defaults of M
 
 [...]
 ```
+
+
+License: [GPLv3](https://www.gnu.org/licenses/)
