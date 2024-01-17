@@ -1,6 +1,6 @@
 Custom stylesheet for [Madek](https://github.com/orc-hfg/resources/wiki/Madek), developed by [Open Resource Center](https://hfg-karlsruhe.de/forschung-und-entwicklung/orc/), a project of Karlsruhe University of Arts and Design in 2024.
 
-The custom CSS is loaded after the regular one so the defaults of Madek can be extended or overwritten. In our case, we added two lines of code to the _base template to achieve this.
+The custom CSS is loaded after the regular one so the defaults of Madek can be extended or overwritten. In our case, we added two lines of code to the _base template.
 
 `madek-webapp/app/views/layouts/_base.haml`
 
