@@ -1,0 +1,731 @@
+/*
+*
+* Custom Stylesheet for Madek User Interface (WebApp)
+* Copyright (C) 2024 HfG Karlsruhe
+* Author: Hannes Herold <hherold@hfg-karlsruhe.de>
+* 
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License version 3 as published by
+* the Free Software Foundation.
+* 
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details: 
+* <https://www.gnu.org/licenses/gpl-3.0.html>
+*
+*/
+
+:root {
+  --white: #FFFFFF;
+  --text: #4c4c4c;
+  --text-inverted: var(--white);
+  --disabled: #b9b9b9;
+  --midtone: #e2e2e2;
+  --primary: coral;
+  --status-green: SeaGreen;
+  --status-blue: SlateBlue;
+  --status-red: MediumVioletRed;
+  --bg-light: #f5f5f5;
+  --bg-dark: #777777;
+  --fs-tiny: 9px;
+  --fs-small: 11px;
+  --fs-regular: 12px;
+  --fs-big: 15px;
+  --round-corners: 2em;
+  --soft-corners: .3em;
+}
+
+
+/* MAKE IT FLAT */
+html *:not(.ui-header-logo), 
+html *:after, 
+html *:before {
+  background-image: none !important;
+  box-shadow: none !important;
+  text-shadow: initial !important;
+}
+
+
+/* NO BORDERS */
+*.bordered,
+*.bordered-right,
+*.bordered-left,
+.separated,
+.separator,
+.ui-side-filter,
+.ui-tabs-item a,
+.ui-media-overview-preview,
+.ui-header {
+  border: none !important;
+  outline: none !important;
+}
+
+
+/* LINKS */
+a,
+a.link {
+ color: var(--primary);
+}
+a.strong {
+  font-weight: normal;
+}
+a.button {
+  color: var(--text);
+}
+a.primary-button {
+  color: var(--text-inverted);
+}
+
+
+/* HEADINGS*/
+.title-l {
+  font-weight: 600;
+}
+/* main title on explore-page */
+.title-xxl {
+  color: var(--primary)
+}
+
+
+
+/* BUTTONS */
+.button,
+a.button,
+.ui-filterbar .button,
+.tertiary-button {
+  padding: .25em 1em 0 1em;
+  border: none;
+  background-color: var(--bg-dark);
+  color: var(--text-inverted);
+  font-weight: 600;
+  font-size: var(--fs-regular);
+}
+.button:hover,
+a.button:hover,
+.button.active,
+.ui-filterbar .button:hover,
+.tertiary-button:hover,
+  .tertiary-button.active {
+  color: var(--text-inverted);
+  background-color: var(--primary);
+}
+/* e.g. main login-box */
+.primary-button {
+  background-color: var(--primary);
+  border: none;
+  line-height: 2.65em !important;
+  color: var(--text-inverted) !important;
+  font-weight: 600;
+  font-size: var(--fs-normal) !important;
+  border-radius: var(--soft-corners);
+}
+.primary-button i::before {
+  color: var(--text-inverted)
+}
+.primary-button:hover,
+.primary-button:hover i::before {
+  background-color: var(--bg-dark);
+  color: var(--text-inverted)
+}
+/* found on metada data edit screens, e.g. add new person */
+.button.small {
+  padding: .25em 1em;
+  line-height: 2em;
+}
+.button.small.icon-close {
+  padding: 0 .5em;
+}
+
+
+
+/* SITE HEADER */
+.ui-header,
+.ui-footer {
+  background-color: var(--text) !important;
+}
+/* site header tabs */
+.ui-header-menu {
+  top: 9px;
+  bottom: auto;
+}
+.ui-header .ui-tabs.primary .ui-tabs-item a {
+  background-color: var(--bg-light);
+  color: var(--text);
+  border-radius: var(--soft-corners);
+  font-size: var(--fs-big);
+  font-weight: 600;
+  min-height: auto;
+}
+.ui-header .ui-tabs.primary .ui-tabs-item a:hover,
+.ui-header .ui-tabs.primary .ui-tabs-item.active a {
+  background-color: var(--primary) !important;
+  color: var(--text-inverted) !important;
+}
+/* disable magnifier icon */
+.ui-header .ui-tabs-item a i { display: none}
+/* site header login button */
+.ui-header .tertiary-button {
+  background-color: var(--white);
+  color: var(--text);
+  border-radius: var(--soft-corners);
+  border: none;
+  font-weight: normal;
+}
+.ui-header .tertiary-button:hover {
+  background-color: var(--primary);
+  color: var(--text-inverted);
+}
+/* site header logged-in-menu */
+.ui-header-user .dropdown-toggle:hover,
+.ui-header-user .open .dropdown-toggle {
+  text-decoration: none;
+  color: var(--primary) !important;
+}
+
+
+
+/* MAIN TABS */
+.ui-tabs-item a {
+  background-color: var(--midtone);
+  padding: 0 1em !important;
+  /* font-weight: 700; */
+  font-size: var(--fs-big) !important;
+  margin-bottom: 1px
+}
+.ui-tabs-item a,
+.ui-tabs-item a i::before {
+  color: var(--bg-dark);
+}
+.ui-tabs-item a:hover,
+.ui-tabs-item.active a,
+.ui-tabs-item.active a i::before {
+  color: var(--text);
+  background-color: var(--text-inverted) !important;
+}
+
+
+
+/* FILTER-SIDEBAR (e.g. page entries) */
+.ui-side-filter a {
+  color: var(--text);
+  font-weight: 600;
+}
+/* mark selected sub-group */
+.ui-side-filter-lvl2-item > a.open {
+  color: var(--primary);
+}
+/* mark selected keyword */
+.ui-side-filter-lvl3-item.active > .link {
+  background-color: var(--white);
+  color: var(--primary);
+  line-height: 1.2em;
+  margin-bottom: .25em;
+  font-weight: normal;
+}
+/* count of selected keyword */
+.ui-side-filter-lvl3-item.active .ui-lvl3-item-count {
+  color: var(--primary) !important;
+  font-weight: normal;
+}
+/* icon: remove selected filter */
+.ui-side-filter-lvl1-item .icon-close {
+  font-size: var(--fs-regular);
+  color: var(--primary);
+  padding: .3em;
+}
+/* DISABLE search field on top of filter sidebar */
+.js-only .ui-side-filter-search.filter-search {
+  display: none !important;
+}
+.ui-filterbar .col2of6.left .link {
+  color: var(--text);
+  font-size: var(--fs-small);
+}
+.ui-filterbar .col2of6.left .link:hover {
+  color: var(--primary)
+}
+.ui-filterbar .col2of6.left .icon-undo {
+  display: none;
+}
+
+
+
+/* position MY new media / set buttons more prominent */
+#app[data-action="dashboard"] .ui-body-title-actions {
+  left: 50%;
+  margin-left: -155px;
+}
+
+
+
+/* TAGS */
+a.ui-tag-button,
+a.ui-tag-button:visited {
+  font-size: var(--fs-small);
+  font-weight: normal;
+  border-radius: var(--round-corners);
+  display: flex;
+  align-items: center;
+  padding: 0 1em;
+  background-color: var(--white);
+  color: var(--text);
+  border-color: var(--midtone);
+  line-height: 1em !important;
+  min-height: 2.5em !important;
+  
+}
+.ui-tag-button:hover,
+a.ui-tag-button:visited:hover {
+  background-color: var(--white);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.ui-tag-button .ui-tag-counter {
+  font-size: var(--fs-tiny);
+  border-radius: 50%;
+  border: none;
+  margin-left: .5em;
+  font-weight: normal;
+  height: 20px;
+  width: 20px;
+  line-height: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.ui-tag-cloud-item i {
+  display: none;
+}
+/* tags on metada data pages */
+.multi-select-holder .multi-select-tag {
+  background-color: transparent;
+  font-weight: normal;
+  margin-right: .25em;
+  margin-bottom: .5em;
+  position: relative;
+  padding-right: 2em;
+}
+.multi-select-holder .multi-select-tag a {
+  color: var(--primary);
+  padding: 0 .3em;
+  position: absolute;
+  top: .1em;
+  right: .3em;
+}
+
+
+/* LAYOUT BARS */
+.ui-toolbar.inverted {
+  background: var(--white);
+  top: 0;
+  /* border-bottom: 2px solid; */
+}
+.ui-toolbar.inverted h2 {
+  color: var(--text)
+}
+/* sortierung */
+.ui-toolbar.inverted .dropdown a {
+  color: var(--text);
+}
+.ui-toolbar.inverted .dropdown.open a.dropdown-toggle,
+.ui-toolbar.inverted .dropdown a:hover {
+  color: var(--primary);
+  text-decoration: none;
+}
+/* save layout button */
+.button-group.tertiary .small.button {
+  background-color: var(--bg-dark);
+  padding: .25em .5em;
+  min-height: auto;
+  height: 1.65em;
+  border: none;
+  font-weight: normal;
+}
+.button-group.tertiary .small.button .icon-eye {
+  display: none;
+}
+.ui-toolbar-vis-button.button.active[disabled] {
+  background-color: var(--white);
+}
+/* grid list etc. view buttons */
+.ui-toolbar-controls .button.small {
+  background-color: var(--bg-dark);
+  border: none;
+}
+.ui-toolbar-controls .button.small:hover,
+.ui-toolbar-controls .button.small:active,
+.ui-toolbar-controls .button.small:focus,
+.ui-toolbar-controls .button.small.active {
+  border: none;
+  background-color: var(--primary);
+}
+.ui-toolbar-controls .button.small.active i {
+  opacity: 1;
+}
+/* page counter */
+.ui-pager {
+  background: none;
+}
+.ui-pager span {
+  cursor: pointer
+}
+
+
+/* dropdown menus (e.g. actions if logged in) */
+.ui-drop-menu {
+  border: 1px solid var(--bg-dark);
+  background-color: var(--white);
+}
+.ui-drop-item a {
+  color: var(--text);
+  font-weight: normal;
+}
+.ui-drop-item a:hover,
+.ui-drop-item a:hover i::before {
+  color: var(--primary)
+}
+
+
+
+/* THUMBNAILS */
+/* basic styles */
+.ui-thumbnail-image-wrapper,
+.ui-featured-entry,
+.ui-level-image-wrapper {
+  border: 2px solid var(--bg-light);
+  overflow: hidden;
+  padding: 0;
+  background-color: var(--white);
+  border-radius: var(--soft-corners);
+}
+.grid .media-entry:hover .ui-thumbnail-image-wrapper,
+.grid .media-set:hover .ui-thumbnail-image-wrapper,
+.media-catalog:hover .ui-thumbnail-image-wrapper,
+.ui-resource.ui-selected .ui-thumbnail-image-wrapper {
+  border-color: var(--primary)
+}
+.media-entry:hover .ui-thumbnail-privacy,
+.media-set:hover .ui-thumbnail-privacy {
+  border-color: var(--primary);
+}
+/* media entries */
+/* position image at top of square */
+.media-entry .ui-thumbnail-image-holder {
+  height: auto !important;
+  width: auto !important;
+  top: 0 !important;
+}
+/* make image fill the whole square */
+.media-entry .ui-thumbnail-image {
+  max-width: initial !important;
+  max-height: initial !important;
+  object-fit: cover;
+  width: 130px;
+  height: 130px;
+}
+/* sets */
+/* make them round */
+.media-set .ui-thumbnail-image-wrapper,
+.ui-level-image-wrapper {
+  border-radius: 50%;
+}
+/* make image fill the whole circle */
+.media-set .ui-thumbnail-image {
+  max-width: initial !important;
+  max-height: initial !important;
+  object-fit: cover;
+  width: 130px;
+  height: 130px;
+}
+/* subtitles */
+.ui-thumbnail-meta-subtitle {
+  padding-top: .33em;
+  line-height: initial;
+}
+/* interaction*/
+.ui-thumbnail-level-up-items, 
+.ui-thumbnail-level-down-items {
+  background-color: var(--primary);
+}
+.ui-thumbnail-level-notes {
+  color: white !important
+}
+.ui-thumbnail-meta-extension {
+  border: none !important;
+}
+/* ICONS */
+.ui-thumbnail-privacy {
+  border-radius: var(--round-corners);
+  border: 2px solid white;
+  padding: .125em;
+  left: .7em !important;
+  top: .7em !important;
+}
+
+
+
+
+/* MY ARCHIVE */
+.ui-side-navigation-item a {
+  color: var(--text);
+  background-color: var(--bg-light);
+  border-radius: var(--soft-corners);
+  line-height: 1.25em;
+  padding: .75em;
+  margin-bottom: .25em;
+  text-decoration: none;
+  font-weight: 600;
+}
+.ui-side-navigation-item a:hover,
+.ui-side-navigation-item.active a {
+  font-weight: normal;
+  background-color: var(--primary);
+  color: var(--text-inverted);
+}
+
+
+/* list-view of entries and sets */
+.ui-resources.list .ui-resource-description,
+.ui-resources.list .ui-resource-extension {
+  border: none;
+}
+.ui-resources.list .ui-resource {
+  padding-bottom: 2em;
+  margin-bottom: 2em;
+  border-bottom: 3px solid var(--bg-light);
+}
+
+
+/* position preview image of media entry always top */
+.ui-media-overview-preview {
+  vertical-align: top;
+}
+
+
+
+
+/* PAGE ACTIONS: main buttons for editing */
+.ui-body-title-actions {
+  padding: 0;
+  top: .5em
+}
+.ui-body-title-actions .button {
+  border: none;
+  background-color: var(--text-inverted);
+  padding: .5em 1.5em;
+  max-height: 3em;
+  font-weight: 600;
+}
+.ui-body-title-actions .dropdown-toggle {
+  height: auto
+}
+.ui-body-title-actions .button,
+.ui-body-title-actions .dropdown-toggle, 
+.ui-body-title-actions .button i::before,
+.ui-body-title-actions .button span {
+  color: var(--primary)
+}
+.ui-body-title-actions .button:hover,
+.ui-body-title-actions .button:hover i::before,
+.ui-body-title-actions .button:hover span,
+.ui-body-title-actions .button:hover *::after {
+  background-color: var(--primary);
+  color: var(--text-inverted);
+}
+.button .stand-alone::after {
+  border: none
+}
+/* add info text */
+.button_to [class*="icon-"]::after,
+.button_to .fa-share::after {
+  display: block;
+  font-size: var(--fs-tiny);
+  text-transform: uppercase;
+  color: var(--bg-dark);
+  font-family: "open Sans";
+  font-weight: 700;
+  margin-top: -.5em;
+}
+.button_to [class*="icon-"]:not(.stand-alone)::before {
+  display: block;
+  margin-top: -.25em;
+  margin-bottom: .5em
+}
+.button_to .icon-pen::after {
+  content: "edit";
+}
+.button_to .icon-nofavorite::after {
+  content: "favorit";
+}
+.button_to .icon-favorite::after {
+  content: "favorit";
+}
+.button_to .icon-move::after {
+  content: "to set";
+}
+.button_to .fa-share::after {
+  content: "share";
+  margin-top: 0;
+}
+/* deactivate undo-icon on button "all vocabularies" in pages of vocabulary */
+.ui-body-title-actions .icon-undo {
+  display: none;
+}
+
+
+
+/* META DATA EDIT */
+.ui-form-group.columned {
+  border: none;
+}
+.ui-form-group.columned:nth-of-type(odd) {
+  background-color: var(--bg-light);
+}
+/* add new person or group */
+/* needs re-positioning*/
+.multi-select .form-widget {
+  padding-left: 2em;
+}
+.multi-select .ui-tabs-item:first-of-type {
+  margin-left: 2.5em !important;
+  padding-left: 0 !important;
+}
+/* adjust styling */
+.multi-select .ui-tabs-item a {
+  color: var(--bg-dark);
+  border-radius: var(--soft-corners);
+}
+.multi-select .ui-tabs-item.active a {
+  color: var(--text-inverted);
+  background-color: var(--primary) !important;
+}
+
+
+/* SUCHE */
+#app[data-view="search"] .ui-search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 !important;
+}
+#app[data-view="search"] input.ui-search-input {
+  max-width: 78%;
+  margin-bottom: 0;
+}
+#app[data-view="search"] .ui-search-button {
+  position: initial;
+}
+#app[data-view="search"] .ui-search-form {
+  position: relative;
+}
+#app[data-view="search"] .ui-container.midtone::before {
+  display: block;
+  width: 400px;
+  margin: 0 auto;
+  margin-bottom: -10em;
+  padding-top: 2em;
+  content: "Einfache Suche über Madek-Textfelder. Keywords und Personen werden NICHT durchsucht, Operatoren (Plus, Anführungszeichen usw.) werden nicht unterstützt. \A\A Wir empfehlen eine sehr allgemeine Suche (ggf. Suchfeld leer lassen). Die Ergebnisse können dann auf der nächsten Seite mit Filtern detailliert eingeschränkt werden.";
+  white-space: pre-wrap;
+}
+#app[data-view="search"] .ui-container.midtone::after {
+  display: block;
+  width: 400px;
+  margin: 0 auto;
+  margin-top: -10em;
+  padding-bottom: 2em;
+  content: "Simple search over Madek text fields. Keywords and persons will NOT be searched, operators (plus, quotes, etc.) are not supported. \A\A We recommend a very general search (or even leaving the search field empty). Results can be narrowed down in detail with filters on the next page.";
+  white-space: pre-wrap;
+}
+#app[data-view="search"] .ui-search div {
+  display: none;
+}
+
+
+
+
+/* IMPORT MEDIA */
+#app[data-action="new"] .ui-form-group h3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#app[data-action="new"] .ui-form-group h3 label {
+  display: block;
+  width: fit-content;
+  margin-top: 1em;
+}
+
+
+
+
+/* alerts */
+.ui-alert.success {
+  background-color: var(--status-green);
+}
+.ui-alert.confirmation {
+  background-color: var(--status-blue);
+}
+.ui-alert.error {
+  background-color: var(--status-red);
+}
+
+
+
+/* FORMS */
+input,
+input[type="text"],
+input[type="text"]:focus,
+input[type="text"]:focus-visible,
+input[type="password"],
+input[type="password"]:focus,
+input[type="password"]:focus-visible,
+textarea {
+  box-shadow: none !important;
+  outline: none;
+  border-color: var(--disabled) !important;
+}
+textarea {
+  resize: vertical;
+}
+select {
+  margin: 0;
+  font-family: inherit;
+  width: auto;
+  border: 1px solid var(--disabled);
+  border-radius: var(--soft-corners);
+  padding: 0.25em 0.5em;
+  font-size: var(--fs);
+  line-height: 1.15;
+  min-width: 5ch;
+  max-width: 30ch;
+  cursor: pointer;
+  background-color: var(--midtone);
+}
+fieldset .multi-select {
+  border: none;
+}
+
+
+
+/* SECTION LABEL (experimental) */
+/* currently disabled */
+.section-labels {
+  display: none;
+}
+.section-labels {
+  top: -3.5em;
+}
+.section-labels__item {
+  display: block;
+  padding: .75em;
+  width: 6.25em;
+  height: 6.25em;
+  hyphens: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
