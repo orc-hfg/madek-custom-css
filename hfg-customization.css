@@ -189,7 +189,6 @@ a.button:hover,
 .ui-tabs-item a {
   background-color: var(--midtone);
   padding: 0 1em !important;
-  /* font-weight: 700; */
   font-size: var(--fs-big) !important;
   margin-bottom: 1px
 }
@@ -273,7 +272,6 @@ a.ui-tag-button:visited {
   border-color: var(--midtone);
   line-height: 1em !important;
   min-height: 2.5em !important;
-  
 }
 .ui-tag-button:hover,
 a.ui-tag-button:visited:hover {
@@ -321,7 +319,6 @@ a.ui-tag-button:visited:hover {
 .ui-toolbar.inverted {
   background: var(--white);
   top: 0;
-  /* border-bottom: 2px solid; */
 }
 .ui-toolbar.inverted h2 {
   color: var(--text)
@@ -711,7 +708,7 @@ fieldset .multi-select {
 
 
 
-/* SECTION LABEL (experimental) */
+/* SECTION LABELS */
 /* currently disabled */
 .section-labels {
   display: none;
