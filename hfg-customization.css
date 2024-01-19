@@ -22,7 +22,8 @@
   --text-inverted: var(--white);
   --disabled: #b9b9b9;
   --midtone: #e2e2e2;
-  --primary: coral;
+  /* --primary: coral; */
+  --primary: rgb(255, 113, 61);
   --status-green: SeaGreen;
   --status-blue: SlateBlue;
   --status-red: MediumVioletRed;
@@ -47,6 +48,7 @@ html *:before {
 }
 
 
+
 /* NO BORDERS */
 *.bordered,
 *.bordered-right,
@@ -56,10 +58,22 @@ html *:before {
 .ui-side-filter,
 .ui-tabs-item a,
 .ui-media-overview-preview,
-.ui-header {
+.ui-header,
+td {
   border: none !important;
   outline: none !important;
 }
+
+
+/* ADMIN MODE */
+body[data-uberadmin] {
+  border: none;
+}
+body[data-uberadmin] #app {
+  border: 1.5em solid var(--status-blue);
+}
+
+
 
 
 /* LINKS */
@@ -81,6 +95,9 @@ a.primary-button {
 /* HEADINGS*/
 .title-l {
   font-weight: 600;
+}
+.title-xl {
+  color: var(--primary)
 }
 /* main title on explore-page */
 .title-xxl {
@@ -181,6 +198,13 @@ a.button:hover,
 .ui-header-user .open .dropdown-toggle {
   text-decoration: none;
   color: var(--primary) !important;
+}
+
+
+
+/* Disable icons on main title */
+.ui-body-title-label i {
+  display: none
 }
 
 
@@ -484,6 +508,7 @@ a.ui-tag-button:visited:hover {
 }
 
 
+
 /* list-view of entries and sets */
 .ui-resources.list .ui-resource-description,
 .ui-resources.list .ui-resource-extension {
@@ -512,7 +537,7 @@ a.ui-tag-button:visited:hover {
 .ui-body-title-actions .button {
   border: none;
   background-color: var(--text-inverted);
-  padding: .5em 1.5em;
+  padding: .5em 1em;
   max-height: 3em;
   font-weight: 600;
 }
@@ -555,13 +580,13 @@ a.ui-tag-button:visited:hover {
   content: "edit";
 }
 .button_to .icon-nofavorite::after {
-  content: "favorit";
+  content: "favorite";
 }
 .button_to .icon-favorite::after {
-  content: "favorit";
+  content: "favorite";
 }
 .button_to .icon-move::after {
-  content: "to set";
+  content: "add to set";
 }
 .button_to .fa-share::after {
   content: "share";
@@ -578,7 +603,8 @@ a.ui-tag-button:visited:hover {
 .ui-form-group.columned {
   border: none;
 }
-.ui-form-group.columned:nth-of-type(odd) {
+/* only on meta-data-edit-pages (not on my-page at the bottom, for instance) */
+#app[data-action="edit_meta_data_by_context"] .ui-form-group.columned:nth-of-type(odd) {
   background-color: var(--bg-light);
 }
 /* add new person or group */
@@ -599,6 +625,7 @@ a.ui-tag-button:visited:hover {
   color: var(--text-inverted);
   background-color: var(--primary) !important;
 }
+
 
 
 /* SUCHE */
