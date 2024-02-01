@@ -1,5 +1,4 @@
 /*
-*
 * Custom Stylesheet for Madek User Interface (WebApp)
 * Copyright (C) 2024 HfG Karlsruhe
 * Author: Hannes Herold <hherold@hfg-karlsruhe.de>
@@ -13,7 +12,11 @@
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 * GNU General Public License for more details: 
 * <https://www.gnu.org/licenses/gpl-3.0.html>
-*
+*/
+
+/*
+* This variant uses the grey background areas of the Madek WebApp, 
+* but otherwise new colors and elements.
 */
 
 :root {
