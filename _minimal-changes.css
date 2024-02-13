@@ -224,16 +224,11 @@ a.ui-tag-button:visited:hover {
 
 
 
-/* alerts */
-.ui-alert.success {
-  background-color: var(--status-green);
+/* make textareas resizable */
+textarea {
+  resize: vertical;
 }
-.ui-alert.confirmation {
-  background-color: var(--status-blue);
-}
-.ui-alert.error {
-  background-color: var(--status-red);
-}
+
 
 
 /* ADMIN MODE */
@@ -241,8 +236,9 @@ body[data-uberadmin] {
   border: none;
 }
 body[data-uberadmin] #app {
-  border: 1.5em solid var(--status-blue);
+  border: 1.5em solid rgb(219, 49, 49);
 }
+
 
 
 /* SECTION LABELS */
