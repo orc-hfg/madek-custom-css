@@ -53,6 +53,7 @@ html *:before {
 .ui-tabs-item a,
 .ui-media-overview-preview,
 .ui-header,
+.ui-form-group.columned,
 td {
   border: none !important;
   outline: none !important;

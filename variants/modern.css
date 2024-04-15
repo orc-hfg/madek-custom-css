@@ -1,0 +1,817 @@
+/*
+*
+* Custom Stylesheet for Madek User Interface (WebApp)
+* Copyright (C) 2024 HfG Karlsruhe
+* Author: Hannes Herold <hherold@hfg-karlsruhe.de>
+* 
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License version 3 as published by
+* the Free Software Foundation.
+* 
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details: 
+* <https://www.gnu.org/licenses/gpl-3.0.html>
+*
+*/
+
+:root {
+  --white: #FFFFFF;
+  --black: #181818;
+  /* text-color of original design */
+  --text: #4c4c4c;
+  --text-inverted: var(--white);
+  --dark-border: #525252;
+  /* --primary: coral; */
+  /* --primary: rgb(255, 113, 61); */
+  /* --primary: rgb(21, 172, 165); */
+  /* edited portal orange */
+  --primary: #fb7430;
+  --status-green: SeaGreen;
+  --status-blue: SlateBlue;
+  --status-red: MediumVioletRed;
+  --fs-tiny: 9px;
+  --fs-small: 11px;
+  --fs-regular: 12px;
+  --fs-big: 15px;
+  --round-corners: 2em;
+}
+
+
+/* MAKE IT FLAT */
+html *:not(.ui-header-logo), 
+html *:after, 
+html *:before {
+  background-image: none !important;
+  box-shadow: none !important;
+  text-shadow: initial !important;
+}
+
+/* NO BACKGROUNDS */
+body,
+.app-body,
+.ui-container.midtone,
+.ui-body-title-actions {
+  background: var(--white);
+}
+
+/* NO BORDERS */
+*.bordered,
+*.bordered-right,
+*.bordered-left,
+.ui-tabs-item a,
+.ui-media-overview-preview,
+label,
+td {
+  border: none !important;
+  outline: none !important;
+}
+/* exceptions: borders */
+.separator,
+.title-l.separated {
+  border-top: none;
+  border-bottom: 1px solid var(--dark-border);
+}
+.separator.mini {
+  display: none;
+}
+#app[data-view="application"] hr,
+#app[data-view="explore"] hr,
+#app[data-view="media_entries"] hr {
+  display: none;
+}
+
+/* NO ROUND CORNERS */
+.button,
+input,
+.ui-pager,
+.ui-container {
+  border-radius: unset !important;
+}
+
+
+/* padding-classes */
+.app-body {
+  padding: 2.5em;
+}
+.pal {
+  /* padding: 1.6em !important; */
+  padding: 0 !important;
+}
+.pam {
+  /* padding: 1.6em !important; */
+  padding: 0 !important;
+}
+
+
+
+/* ADMIN MODE */
+body[data-uberadmin] {
+  border: none;
+}
+body[data-uberadmin] #app {
+  border: 1.5em solid var(--status-blue);
+}
+
+
+
+
+/* LINKS */
+a,
+a.link,
+a.button,
+a.primary-button {
+  color: var(--primary);
+}
+a.strong {
+  font-weight: normal;
+}
+a:hover,
+.link:hover,
+a.button:hover,
+a.primary-button:hover {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--primary);
+  border-color: var(--primary)
+}
+a.button:hover,
+a.primary-button:hover {
+  background: none;
+}
+
+
+
+
+
+/* BUTTONS */
+/* primary */
+.primary-button {
+  background: none;
+  color: var(--text) !important;
+  font-weight: 600;
+  border: 1px solid var(--dark-border);
+  border-radius: 0;
+  padding: .3em .75em;
+}
+.primary-button i::before {
+  color: var(--text) !important
+}
+.primary-button:hover,
+.primary-button:active,
+.primary-button:focus {
+  background: none;
+  color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+.primary-button:hover i::before {
+  background: none;
+  color: var(--primary) !important;
+}
+/* tertiary */
+.tertiary-button {
+  background: none;
+  color: var(--text) !important;
+  font-size: var(--fs-regular);
+  font-weight: 600;
+  border: 1px solid var(--dark-border);
+  border-radius: 0;
+  top: unset !important;
+}
+.tertiary-button i {
+  font-size: var(--fs-regular);
+  top: 1px;
+}
+.tertiary-button:hover {
+  background: none;
+  color: var(--primary) !important;
+}
+.tertiary-button:hover i {
+  color: var(--primary) !important;
+}
+/* simple */
+.button {
+  background: none;
+  color: var(--text) !important;
+  border-color: var(--dark-border) !important
+}
+.button:hover,
+.button.active {
+  background: none;
+  color: var(--primary) !important;
+  border-color: var(--primary) !important
+}
+/* group to change display of media entries */
+.ui-toolbar-vis-button {
+ background: none !important;
+ color: var(--text-inverted) !important;
+ border: 1px solid var(--text-inverted) !important; 
+}
+.ui-toolbar-vis-button.active,
+.ui-toolbar-vis-button:hover {
+  background-color: var(--primary) !important;
+}
+.ui-toolbar-vis-button.active i,
+.ui-toolbar-vis-button:hover i {
+  opacity: 1 !important;
+  color: var(--white);
+}
+
+
+
+
+/* HEADINGS*/
+.title-l {
+  font-weight: 700;
+}
+.title-xl {
+  color: var(--primary)
+}
+/* main title on explore-page */
+.title-xxl {
+  color: var(--primary)
+}
+
+
+/* Main Page Title */
+.ui-body-title {
+  margin-bottom: 4em;
+}
+#app[data-view="keywords"] .ui-body-title {
+  margin-bottom: 0;
+}
+/* Disable icons on main title */
+.ui-body-title-label i {
+  display: none
+}
+
+
+
+
+
+
+/* SITE HEADER */
+.ui-header,
+.ui-footer {
+  background-color: var(--black) !important;
+  display: flex;
+  align-items: center;
+}
+.ui-header * {
+  color: var(--white) !important;
+  /* font-weight: 500 !important; */
+}
+/* branding */
+.ui-header-brand {
+  display: flex;
+  align-items: center;
+}
+/* header menu */
+.ui-header .ui-header-menu {
+  all: unset;
+  width: 33%;
+}
+.ui-header .ui-header-menu ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+.ui-header .ui-tabs-item a {
+  padding: 0 !important;
+  background: none !important;
+}
+.ui-header .ui-tabs-item a:hover,
+.ui-header .ui-tabs-item.active a {
+  color: var(--primary) !important;
+}
+/* disable magnifier icon */
+.ui-header .ui-tabs-item a i { 
+  display: none
+}
+/* header user */
+.ui-header-user {
+  all: unset;
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.ui-header-user .dropdown {
+  top: initial;
+}
+/* footer */
+.ui-footer {
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  height: 3em;
+  text-align: unset;
+}
+.ui-footer-menu {
+  margin: 0;
+  top: unset;
+}
+
+
+
+
+
+/* THUMBNAILS */
+.ui-thumbnail {
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.ui-thumbnail:hover {
+  border: 1px solid var(--primary);
+}
+.ui-thumbnail i {
+  color: var(--white);
+}
+/* basic styles */
+.ui-thumbnail-image-wrapper,
+.ui-featured-entry,
+.ui-level-image-wrapper {
+  border: none;
+  overflow: hidden;
+  padding: 0;
+  background-color: var(--black) !important;
+}
+.ui-thumbnail-image-wrapper i {
+  color: var(--text-inverted) !important;
+}
+/* .grid .media-entry:hover .ui-thumbnail-image-wrapper,
+.grid .media-set:hover .ui-thumbnail-image-wrapper,
+.media-catalog:hover .ui-thumbnail-image-wrapper,
+.ui-resource.ui-selected .ui-thumbnail-image-wrapper {
+  border-color: var(--primary)
+}
+.media-entry:hover .ui-thumbnail-privacy,
+.media-set:hover .ui-thumbnail-privacy {
+  border-color: var(--primary);
+} */
+/* media entries */
+/* position image at top of square */
+.media-entry .ui-thumbnail-image-holder {
+  height: auto !important;
+  width: auto !important;
+  top: 0 !important;
+}
+/* make image fill the whole square */
+.media-entry .ui-thumbnail-image {
+  max-width: initial !important;
+  max-height: initial !important;
+  object-fit: cover;
+  width: 130px;
+  height: 130px;
+}
+/* sets */
+/* make them round */
+.media-set .ui-thumbnail-image-wrapper,
+.ui-level-image-wrapper {
+  border-radius: 50%;
+}
+/* make image fill the whole circle */
+.media-set .ui-thumbnail-image {
+  max-width: initial !important;
+  max-height: initial !important;
+  object-fit: cover;
+  width: 130px;
+  height: 130px;
+}
+/* subtitles */
+.ui-thumbnail-meta-subtitle {
+  padding-top: 0;
+  line-height: initial;
+}
+/* interaction*/
+.ui-thumbnail-level-up-items, 
+.ui-thumbnail-level-down-items {
+  background-color: var(--primary);
+}
+.ui-thumbnail-level-notes {
+  color: white !important
+}
+.ui-thumbnail-meta-extension {
+  border: none !important;
+}
+/* ICONS */
+.ui-thumbnail-privacy {
+  border: none;
+  border-radius: var(--round-corners);
+  background-color: var(--black);
+  padding: .125em;
+  left: .7em !important;
+  top: .7em !important;
+}
+.ui-thumbnail-privacy i::before {
+  color: var(--white)
+}
+
+
+
+
+
+/* TAGS */
+a.ui-tag-button,
+a.ui-tag-button:visited {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  border-radius: var(--round-corners);
+  display: flex;
+  align-items: center;
+  padding: 0 1em;
+  background-color: var(--white);
+  color: var(--text);
+  border-color: var(--dark-border);
+  line-height: 1em !important;
+  min-height: 2.25em !important;
+}
+.ui-tag-button:hover,
+a.ui-tag-button:visited:hover {
+  background-color: var(--white);
+  border-color: var(--primary);
+  color: var(--primary);
+  text-transform: none;
+}
+.ui-tag-button .ui-tag-counter {
+  font-size: var(--fs-tiny);
+  border-radius: 50%;
+  border: none;
+  margin-left: .5em;
+  font-weight: 600;
+  height: 20px;
+  width: 20px;
+  line-height: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+}
+.ui-tag-cloud-item i {
+  display: none;
+}
+/* tags on metada data pages */
+.multi-select-holder .multi-select-tag {
+  background-color: transparent;
+  font-weight: normal;
+  margin-right: .25em;
+  margin-bottom: .5em;
+  position: relative;
+  padding-right: 2em;
+}
+.multi-select-holder .multi-select-tag a {
+  color: var(--primary);
+  padding: 0 .3em;
+  position: absolute;
+  top: .1em;
+  right: .3em;
+}
+
+
+
+
+/* SIDE NAVIGATION ON MY ARCHIVE PAGE */
+.ui-container.rounded-bottom-left {
+  padding: 0 !important;
+  
+}
+.ui-side-navigation-item {
+  border-bottom: 1px solid;
+  margin: 0 !important;
+}
+.ui-side-navigation-item a {
+  color: var(--text);
+  padding: .75em .5em;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1.3em;
+
+}
+.ui-side-navigation-item a:hover,
+.ui-side-navigation-item.active a {
+  font-weight: 600;
+  color: var(--primary);
+  border-color: var(--primary);
+  /* text-transform: none;
+  color: var(--black);
+  background-color: var(--primary); */
+}
+/* vertical seperation */
+.ui-container.app-body-content {
+  padding: 0 0 0 3em !important;
+  border-left: 1px solid var(--dark-border);
+}
+
+
+
+
+
+/* PAGE: LIST OF ENTRIES/SETS */
+/* ui toolbar */
+.ui-container.inverted {
+  background-color: var(--black);
+  border-radius: 0;
+}
+/* resource page counter */
+.ui-resources-page-counter {
+  background: none;
+  padding: 0;
+}
+
+
+
+
+
+/* FILTER-SIDEBAR (e.g. page entries) */
+.ui-side-filter {
+  border: none;
+}
+.ui-side-filter + .ui-container {
+  border-left: 1px solid var(--dark-border);
+  margin-left: 3em;
+  padding-left: 3em;
+}
+.ui-filterbar.separated {
+  border: none;
+}
+.ui-side-filter-lvl1-item {
+  border-bottom: 1px solid var(--dark-border);
+  padding-top: 1em !important;
+}
+/* reset filter */
+.ui-filterbar .col2of6.left .link {
+  color: var(--text);
+  font-size: var(--fs-small);
+}
+.ui-filterbar .col2of6.left .link:hover {
+  color: var(--primary)
+}
+.ui-filterbar .col2of6.left .icon-undo {
+  display: none;
+}
+/* DISABLE search field on top of filter sidebar */
+.js-only .ui-side-filter-search.filter-search {
+  display: none !important;
+}
+/* links */
+.ui-side-filter a {
+  color: var(--text);
+  font-weight: 600;
+}
+.ui-side-filter-lvl1-item > a {
+  text-transform: uppercase;
+}
+/* mark selected sub-group */
+.ui-side-filter-lvl2-item > a.open {
+  color: var(--text);
+}
+/* mark selected keyword */
+.ui-side-filter-lvl3-item.active > .link {
+  background-color: var(--white);
+  color: var(--primary);
+  line-height: 1.2em;
+  margin-bottom: .25em;
+  font-weight: normal;
+}
+
+
+/* count of selected keyword */
+.ui-side-filter-lvl3-item.active .ui-lvl3-item-count {
+  color: var(--primary) !important;
+  font-weight: normal;
+}
+/* icon: remove selected filter */
+.ui-side-filter-lvl1-item .icon-close {
+  font-size: var(--fs-regular);
+  color: var(--primary);
+  padding: .3em;
+}
+
+
+
+
+/* SUCHE */
+#app[data-view="search"] .ui-search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 !important;
+}
+#app[data-view="search"] input.ui-search-input {
+  max-width: 78%;
+  margin-bottom: 0;
+}
+#app[data-view="search"] .ui-search-button {
+  position: initial;
+}
+#app[data-view="search"] .ui-search-form {
+  position: relative;
+}
+#app[data-view="search"] .ui-container.midtone::before {
+  display: block;
+  width: 400px;
+  margin: 0 auto;
+  margin-bottom: -10em;
+  padding-top: 2em;
+  content: "Einfache Suche über Madek-Textfelder. Keywords und Personen werden NICHT durchsucht, Operatoren (Plus, Anführungszeichen usw.) werden nicht unterstützt. \A\A Wir empfehlen eine sehr allgemeine Suche (ggf. Suchfeld leer lassen). Die Ergebnisse können dann auf der nächsten Seite mit Filtern detailliert eingeschränkt werden.";
+  white-space: pre-wrap;
+}
+#app[data-view="search"] .ui-container.midtone::after {
+  display: block;
+  width: 400px;
+  margin: 0 auto;
+  margin-top: -10em;
+  padding-bottom: 2em;
+  content: "Simple search over Madek text fields. Keywords and persons will NOT be searched, operators (plus, quotes, etc.) are not supported. \A\A We recommend a very general search (or even leaving the search field empty). Results can be narrowed down in detail with filters on the next page.";
+  white-space: pre-wrap;
+}
+#app[data-view="search"] .ui-search div {
+  display: none;
+}
+
+
+
+
+
+
+
+/* PAGE MEDIA ENTRY & SET */
+
+
+/* PAGE ACTIONS: main buttons for editing */
+/* style buttons */
+.ui-body-title-actions .button {
+  padding: .5em 1em;
+  max-height: 3em;
+}
+.ui-body-title-actions .dropdown-toggle {
+  height: auto
+}
+.button .stand-alone::after {
+  border: none
+}
+.ui-body-title-actions .button:hover,
+.ui-body-title-actions .button:hover i::before,
+.ui-body-title-actions .button:hover span,
+.ui-body-title-actions .button:hover *::after {
+  color: var(--primary);
+}
+/* add info text */
+.button_to [class*="icon-"]::after,
+.button_to .fa-share::after {
+  display: block;
+  font-size: var(--fs-tiny);
+  text-transform: uppercase;
+  color: var(--text);
+  font-family: "open Sans";
+  font-weight: 700;
+  margin-top: -.5em;
+}
+.button_to [class*="icon-"]:not(.stand-alone)::before {
+  display: block;
+  margin-top: -.25em;
+  margin-bottom: .5em
+}
+.button_to .icon-pen::after {
+  content: "edit";
+}
+.button_to .icon-nofavorite::after {
+  content: "favorite";
+}
+.button_to .icon-favorite::after {
+  content: "favorite";
+}
+.button_to .icon-move::after {
+  content: "add to set";
+}
+.button_to .fa-share::after {
+  content: "share";
+  margin-top: 0;
+}
+/* deactivate undo-icon on button "all vocabularies" in pages of vocabulary */
+.ui-body-title-actions .icon-undo {
+  display: none;
+}
+
+
+/* MAIN TABS */
+.app-body-ui-container .ui-tabs.large {
+  /* border-bottom: 1px solid var(--dark-border); */
+  margin-bottom: 1.5em;
+  background-color: var(--black);
+}
+.app-body-ui-container .ui-tabs-item {
+  border-right: 1px solid var(--white);
+  margin: 0;
+  padding: .25em 1em;
+}
+.app-body-ui-container .ui-tabs-item:last-of-type {
+  border: none;
+}
+.app-body-ui-container .ui-tabs-item a {
+  background: none;
+  color: var(--text-inverted)
+}
+/* disable icon for tab "Berechtigungen" */
+.app-body-ui-container .ui-tabs-item a i {
+  display: none;
+}
+.app-body-ui-container .ui-tabs-item a:hover,
+.app-body-ui-container .ui-tabs-item.active a {
+  background: none;
+  color: var(--primary);
+}
+.app-body-ui-container .ui-tabs-item.active {
+  border-color: var(--primary)
+}
+
+/* metadata below overview-section*/
+.ui-container.media-entry-metadata {
+  margin-top: 4em;
+}
+
+/* siblings: entries in same set */
+.ui-container:has(.ui-sibling-entries) {
+  background-color: var(--black);
+  margin: 0 -2.5em;
+  padding: 1em 2.5em !important;
+}
+.ui-container:has(.ui-sibling-entries) * {
+  color: var(--text-inverted)
+}
+.ui-container:has(.ui-sibling-entries) a {
+  color: var(--primary);
+}
+
+
+
+
+
+/* FORMS */
+input,
+input[type="text"],
+input[type="password"],
+textarea {
+  box-shadow: none !important;
+  outline: none;
+  border-color: var(--disabled) !important;
+}
+input[type="text"]:focus,
+input[type="text"]:focus-visible,
+input[type="password"]:focus,
+input[type="password"]:focus-visible {
+  border-color: var(--primary) !important;
+  outline: none;
+  box-shadow: none !important;
+}
+textarea {
+  resize: vertical;
+}
+select {
+  margin: 0;
+  font-family: inherit;
+  width: auto;
+  border: 1px solid var(--disabled);
+  padding: 0.25em 0.5em;
+  font-size: var(--fs);
+  line-height: 1.15;
+  min-width: 5ch;
+  max-width: 30ch;
+  cursor: pointer;
+  background-color: var(--white);
+}
+fieldset .multi-select {
+  border: none;
+}
+
+
+
+
+
+
+
+/* SECTION LABELS */
+/* currently disabled */
+.section-labels {
+  display: none;
+}
+
+
+
+/*  PREVIEW ONLY */
+#grmblfz {
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  right: 0;
+  padding: .5em;
+  background-color: blue;
+  color: white;
+}
+#grmblfz:hover,
+#grmblfz:active,
+#grmblfz:focus {
+  text-transform: none;
+  background-color: black;
+}
